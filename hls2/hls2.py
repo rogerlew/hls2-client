@@ -30,7 +30,7 @@ def isint(x):
         return False
 
 
-class HLSManager(object):
+class HLS2Manager(object):
     def __init__(self, datadir='/geodata/hls'):
         self._m = MGRS()
         self.datadir = datadir
@@ -169,10 +169,10 @@ class HLSManager(object):
 
         assert _exists(identifier_path), identifier_path
 
-        return HLS(identifier_path)
+        return HLS2(identifier_path)
 
 
-class HLS(object):
+class HLS2(object):
     def __init__(self, identifier):
         _identifier = _split(identifier)
         self.identifier = _identifier[-1]
@@ -654,7 +654,7 @@ if __name__ == "__main__":
     datadir = '/geodata/hls'
 
     bbox = [-114.05, 48.05, -113.95, 47.95]
-    hls_manager = HLSManager(datadir=datadir)
+    hls_manager = HLS2Manager(datadir=datadir)
     _mgrss = hls_manager.identify_mgrs_from_bbox(bbox=bbox)
     #_mgrss = [hls_manager.identify_mgrs_from_point(-114.05, 48.05)]
     print(_mgrss)
